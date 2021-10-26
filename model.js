@@ -1,20 +1,14 @@
 let state = {
     page: 'home',  // value: "home" or "library"
-    search: 'Поиск фильмов', // при успішному пошуку фільму по ключовому слову відбувається рендер карток фільмів на головній сторінці. Також змінюються номери сторінок 
-    searchError: 'Search result not successful. Enter the correct movie name.', // value:'Search result not successful. Enter the correct movie name.' or 'Search result not successful. ' при некоректному вводі або при відсутності певного фільму під інпутом з'являється повідомлення про помилку 
-    filmCard: {   // тут має бути функція, яка рендерить модальне вікно
-        addToWatchButton: 'Add to watched', // кнопка-перемикач, при кліку фільм додається на сторінку myLibrary і кнопка підсвічується кольором, клікаємо ще раз - кнопка не світиться + видаляємо з розділу watched
-        addToQueueButton: 'Add to queue', // кнопка-перемикач, зберігаємо в розділ queue  на сторінку myLibrary і кнопка підсвічується кольором, клікаємо ще раз - кнопка не світиться + видаляємо з розділу queue
-    },
+    search: '', // при успішному пошуку фільму по ключовому слову відбувається рендер карток фільмів. Також змінюються номери сторінок 
+    searchError: 'false', // value: true or false. 'Search result not successful. Enter the correct movie name.' or 'Search result not successful. ' при некоректному вводі або при відсутності певного фільму під інпутом з'являється повідомлення про помилку 
     pagination: {
-        leftSideButton: '', // якщо page value = 1 в url, то кнопка неактивна, якщо клікаємо на кнопку - відбувається рендер фільмів з url, де page value = 1
-        rightSideButton: '', // 
-        pageButtons: [1, 2, 3, 4, 5, 6], // шість динамічних кнопок, при кліку кнопка підсвічується, сторінка перерендерюється (завантажуються інші фльми) 
-    }, // тут поки що геть непонятно що куди
+       currentPage: '', 
+       pageCount: '', 
+    }, 
 
-    filterButtons: {
-        watchButton: '', // по замовчуванню на сторінці myLibrary показуються переглянуті фільми. Активна кнопка підсвічується кольором
-        queueButton: '', // при кліку відбувається рендер сторінки, показуються фільми, додані в чергу
-    },
+    library: {
+        page: 'watched', // values: watched or queue
+    }
 } 
 
