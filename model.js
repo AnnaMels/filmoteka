@@ -12,15 +12,17 @@ let state = {
     }
 } 
 
-let filmCard = {
+let film = {
     image: '', 
     title: '', 
-    vote: '', 
+    vote: 0.0, 
+    votes: 0,
     popularity: '', 
     originalTitle: '', // there is a difference between title and original title
     genre: '',
     description: '',
-    buttonsState: {
+    state: {
+        regularButton: '',
         watchedButton: '', // values: add to watched or watched
         queueButton: '', //values: add to queue or in queue
     }
