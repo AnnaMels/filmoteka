@@ -21,9 +21,5 @@ let film = {
     originalTitle: '', // there is a difference between title and original title
     genre: '',
     description: '',
-    state: {
-        regularButton: '',
-        watchedButton: '', // values: add to watched or watched
-        queueButton: '', //values: add to queue or in queue
-    }
+    state: '', // value: watched|queue|regular
 }
