@@ -12,3 +12,14 @@ let state = {
     }
 } 
 
+let film = {
+    image: '', 
+    title: '', 
+    vote: 0.0, 
+    votes: 0,
+    popularity: '', 
+    originalTitle: '', // there is a difference between title and original title
+    genre: '',
+    description: '',
+    state: '', // value: watched|queue|regular
+}
