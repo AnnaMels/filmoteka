@@ -34,18 +34,17 @@ libraryPageLink.addEventListener('click', (e) => {
     render();
 
 
-async function getLatestFilms() {
-    const response = await fetch('https://api.themoviedb.org/3/trending/all/day?api_key=584850c42ae7d2e479212f5963ad1dce');
-    const films = response.json();
-    return films;
-    
-}
+let filmsArr = [];
 
-getLatestFilms().then(films => {
-    let film = {};
-    let arr = [];
+function getLatestFilms() {
+    fetch('https://api.themoviedb.org/3/trending/all/day?api_key=584850c42ae7d2e479212f5963ad1dce')
+    .then(response => {
+        return response.json()
+    })
+    .then(films => {
     const allFilms = films.results;
     for(let i = 0; i < allFilms.length; i += 1) {
+        let film = {};
         film.title = allFilms[i].title || allFilms[i].name;
         film.image = allFilms[i].poster_path;
         film.vote = allFilms[i].vote_average;
@@ -53,9 +52,10 @@ getLatestFilms().then(films => {
         film.popularity = allFilms[i].popularity;
         film.original_title = allFilms[i].original_title || allFilms[i].original_name;
         film.description = allFilms[i].overview;
-        // film.genre = allFilms[i].genre;
-        arr.push(film);
-        
+        filmsArr.push(film);
     }
-    console.log(arr);
-})
+    })
+    return filmsArr;
+}
+
+getLatestFilms();
