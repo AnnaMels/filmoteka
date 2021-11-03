@@ -45,6 +45,7 @@ function getLatestFilms() {
     const allFilms = films.results;
     for(let i = 0; i < allFilms.length; i += 1) {
         let film = {};
+        film.genres = allFilms[i].genre_ids;
         film.title = allFilms[i].title || allFilms[i].name;
         film.image = allFilms[i].poster_path;
         film.vote = allFilms[i].vote_average;
@@ -56,6 +57,27 @@ function getLatestFilms() {
     }
     })
     return filmsArr;
+
+}
+getLatestFilms();
+
+function replaceGenresIdsByNames(films) {
+    fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=584850c42ae7d2e479212f5963ad1dce')
+    .then(response => {
+        return response.json()
+    })
+    .then(genresItems => {
+        const genres = genresItems.genres;
+        for(let i = 0; i < films.length; i += 1) {
+            for(let i = 0; i < genres.length; i += 1) {
+
+                }
+            }
+           
+    })
 }
 
-getLatestFilms();
+    
+    
+
+replaceGenresIdsByNames(filmsArr);
